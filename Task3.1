@@ -1,0 +1,36 @@
+""" Напишите программу, которая по заданному номеру четверти, показывает диапазон возможных координат точек в этой четверти (x и y).  """
+
+
+def inputKoord(x):
+    a = x
+    for i in range(x):
+        is_OK = False
+        while not is_OK:
+            try:
+                number = int(input(f"Введите номер четверти: "))
+                a = number
+                is_OK = True
+                if 1 > a or a > 4 :
+                    is_OK = False
+                    print("Четверть должно быть равна 1, 2, 3 или 4 ")
+            except ValueError:
+                print("Ты ошибся. Вводить надо целые числа!")
+    return a
+
+
+def checkCoordinates(x):    
+    if x == 1:
+        text = "X > 0; Y > 0"
+    elif x == 2:
+        text = "X < 0; Y > 0"
+    elif x == 3:
+        text = "X < 0; Y < 0"
+    elif x == 4:
+        text = "X > 0; Y < 0"
+    print(f"Диапазон возможных координат точек в этой четверти (x и y): 
+
+{text}.")
+
+
+koordinate = inputKoord(1)
+checkCoordinates(koordinate)
